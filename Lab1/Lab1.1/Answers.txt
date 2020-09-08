@@ -1,0 +1,78 @@
+l.a.1)
+The listening address is bound to the IPv4 adress 0.0.0.0 and listening on socket 5703. 0.0.0.0 is a non-routable
+meta-address used to designate an invalid, unknown, or non-applicable target (a ‘no particular address’ place holder).
+When this is applied to a server, this is meant to mean "all IPv4 addresses on the local machine".
+
+
+
+l.a.2)
+a)
+
+l.a.3)
+
+
+
+
+l.a.4)
+
+
+l.d.2)
+7 clients
+1000 queries
+
+Connection
+min time: 0.205ms
+max time: 0.593ms
+avg time: 0.346
+
+Round trip time
+man time: 59.281ms
+max time: 416.358ms
+avg time: 286.287ms
+
+-----------------------------------------------------------------------------------------
+
+Hermans-Air:1.2 Herman$ ./client-multi 0.0.0.0 1234 7 5000 '1'
+Simulating 7 clients.
+Establishing 7 connections... 
+  successfully initiated 7 connection attempts!
+Connect timing results for 7 successful connections
+  - min time: 0.218720 ms
+  - max time: 0.602813 ms
+  - average time: 0.348725 ms
+ (0 connections failed!)
+Roundtrip timing results for 7 connections for 5000 round trips
+  - min time: 306.100235 ms
+  - max time: 1849.425545 ms
+  - average time: 1097.941196 ms
+
+-----------------------------------------------------------------------------------------
+Hermans-Air:1.2 Herman$ ./client-multi 0.0.0.0 1234 7 10000 '1'
+Simulating 7 clients.
+Establishing 7 connections... 
+  successfully initiated 7 connection attempts!
+Connect timing results for 7 successful connections
+  - min time: 0.229969 ms
+  - max time: 0.970580 ms
+  - average time: 0.514739 ms
+ (0 connections failed!)
+Roundtrip timing results for 7 connections for 10000 round trips
+  - min time: 608.684543 ms
+  - max time: 4234.546652 ms
+  - average time: 2456.192276 ms
+Hermans-Air:1.2 Herman$ 
+
+-----------------------------------------------------------------------------------------
+
+Connect timing results for 100 successful connections
+  - min time: 1.616930 ms
+  - max time: 15035.351943 ms
+  - average time: 8919.038826 ms
+ (0 connections failed!)
+Roundtrip timing results for 48 connections for 10000 round trips
+  - min time: 774.426416 ms
+  - max time: 14139.352406 ms
+  - average time: 7912.588749 ms
+[bherman@remote11 1.2]$ 
+
+
