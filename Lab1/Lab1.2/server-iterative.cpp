@@ -146,6 +146,8 @@ static bool is_invalid_connection(const ConnectionData &cd);
  */
 static int setup_server_socket(short port);
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "EndlessLoop"
 //--    main()              ///{{{1///////////////////////////////////////////
 int main(int argc, char *argv[]) {
     int serverPort = kServerPort;
@@ -224,6 +226,7 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+#pragma clang diagnostic pop
 
 //--    process_client_recv()   ///{{{1///////////////////////////////////////
 static bool process_client_recv(ConnectionData &cd) {
@@ -271,7 +274,7 @@ static bool process_client_send(ConnectionData &cd) {
     ssize_t ret = send(cd.sock,
                        cd.buffer + cd.bufferOffset,
                        cd.bufferSize - cd.bufferOffset,
-                       MSG_NOSIGNAL // suppress SIGPIPE signals, generate EPIPE instead
+                       SO_NOSIGPIPE // suppress SIGPIPE signals, generate EPIPE instead
     );
 
     if (-1 == ret) {
